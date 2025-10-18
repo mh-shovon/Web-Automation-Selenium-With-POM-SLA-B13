@@ -1,6 +1,6 @@
 package com.parabank.parasoft.pages;
 
-import com.parabank.parasoft.util.BatchThirteenUtil;
+import com.parabank.parasoft.utils.BatchThirteenUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,7 +27,7 @@ public abstract class Page {
 
     public abstract String getText(By selector);
 
-    public abstract void click(By selector);
+    public abstract void clickElement(By selector);
 
     public abstract Select getSelect(By selector);
 
