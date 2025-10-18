@@ -2,7 +2,7 @@ package com.parabank.parasoft.test;
 
 import com.parabank.parasoft.pages.LoginPage;
 import com.parabank.parasoft.pages.OverViewPage;
-import com.parabank.parasoft.util.BatchThirteenUtil;
+import com.parabank.parasoft.utils.BatchThirteenUtil;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -36,7 +36,7 @@ public class LoginTest extends BaseTest {
     public void checkLoginWithOutUserNameShouldFail() {
         LoginPage loginPage = page.goTo(LoginPage.class);
         loginPage = loginPage
-                .fillUserPassword("asdf")
+                .fillUserPassword(getPassword())
                 .clickLoginBtnForFail();
         Assert.assertTrue(loginPage.isLoginErrorMessageFound());
     }
@@ -45,17 +45,17 @@ public class LoginTest extends BaseTest {
     public void checkLoginWithOutUserPasswordShouldFail() {
         LoginPage loginPage = page.goTo(LoginPage.class);
         loginPage = loginPage
-                .fillUsername("sqa")
+                .fillUsername(getUserName())
                 .clickLoginBtnForFail();
         Assert.assertTrue(loginPage.isLoginErrorMessageFound());
     }
 
     @Test
-    public void checkLoginWithValidCredentialShouldSucceed() {
+    public void checkLoginWithValidCredentialShouldSucceedV1() throws InterruptedException {
         LoginPage loginPage = page.goTo(LoginPage.class);
         loginPage = loginPage
-                .fillUsername("sqa")
-                .fillUserPassword("sqa");
+                .fillUsername(getUserName())
+                .fillUserPassword(getPassword());
 
         OverViewPage overViewPage = loginPage
                 .clickLoginBtn();
@@ -63,11 +63,18 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void checkLoginWithValidCredentialShouldSucceed2() {
+    public void checkLoginWithValidCredentialShouldSucceedV2() {
         OverViewPage overViewPage = page.goTo(LoginPage.class)
-                .fillUsername("sqa")
-                .fillUserPassword("sqa")
+                .fillUsername(getUserName())
+                .fillUserPassword(getPassword())
                 .clickLoginBtn();
+        Assert.assertTrue(overViewPage.isLogoutLinkDisplayed());
+    }
+
+    @Test
+    public void checkLoginWithValidCredentialShouldSucceedV() {
+        OverViewPage overViewPage = page.goTo(LoginPage.class)
+                .doLogin(getUserName(), getPassword());
         Assert.assertTrue(overViewPage.isLogoutLinkDisplayed());
     }
 }

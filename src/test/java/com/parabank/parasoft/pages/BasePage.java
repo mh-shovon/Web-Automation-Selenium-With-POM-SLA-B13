@@ -1,6 +1,9 @@
 package com.parabank.parasoft.pages;
 
+import com.aventstack.extentreports.Status;
+import com.parabank.parasoft.report.ReportTestManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,7 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
-public class BasePage extends Page{
+public class BasePage extends Page {
     public BasePage(WebDriver driver) {
         super(driver);
     }
@@ -16,11 +19,14 @@ public class BasePage extends Page{
     @Override
     public WebElement getWebElement(By selector) {
         try {
+            addInfo("Selenium Webdriver going to find a WebElement with " + selector + " Locator");
             return driver.findElement(selector);
-        } catch (NegativeArraySizeException e) {
+        } catch (NoSuchElementException e) {
+            addFailInfo("Selenium Webdriver is not found a Web Element with " + selector + " Locator");
             System.err.println("Element not found: " + selector);
         } catch (Exception e) {
-            System.out.println("Unexpected error in getWebElement: " + e.getMessage());
+            addFailInfo("Unexpected error in getWebElement with " + selector + " Locator: " + e.getMessage());
+            System.err.println("Unexpected error in getWebElement: " + e.getMessage());
         }
         return null;
     }
@@ -28,8 +34,10 @@ public class BasePage extends Page{
     @Override
     public List<WebElement> getWebElements(By selector) {
         try {
+            addInfo("Selenium Webdriver going to find a WebElement with " + selector + " Locator");
             return driver.findElements(selector);
         } catch (NegativeArraySizeException e) {
+            addFailInfo("Unexpected error in getWebElement with " + selector + " Locator: " + e.getMessage());
             System.err.println("Elements not found: " + selector);
         } catch (Exception e) {
             System.out.println("Unexpected error in getWebElements: " + e.getMessage());
@@ -43,29 +51,36 @@ public class BasePage extends Page{
     }
 
     @Override
-    public void click(By selector) {
+    public void clickElement(By selector) {
         try {
+            addInfo("Selenium Webdriver going to click a WebElement with " + selector + " Locator");
             wait.until(ExpectedConditions.elementToBeClickable(getWebElement(selector))).click();
-        } catch (NegativeArraySizeException e) {
-            System.err.println("Element is not clickable: " + selector);
+            addInfo("Selenium Webdriver clicked a WebElement with " + selector + " Locator");
+        } catch (NoSuchElementException e) {
+            addFailInfo("Selenium Webdriver is not able to click a Web Element with " + selector + " Locator");
+            System.err.println("Element not clickable: " + selector);
         } catch (Exception e) {
-            System.out.println("Unexpected error while clicking on an element: " + e.getMessage());
+            addFailInfo("Unexpected error during clicking with " + selector + " Locator: " + e.getMessage());
+            System.err.println("Unexpected error during clicking: " + e.getMessage());
         }
     }
 
     @Override
     public Select getSelect(By selector) {
+        addInfo("Selenium Webdriver going to create a Select object for WebElement with " + selector + " Locator");
         return new Select(getWebElement(selector));
     }
 
     @Override
     public void setWait(By selector) {
         try {
+            addInfo("Selenium Webdriver going to wait for visibility of WebElement with " + selector + " Locator");
             wait.until(ExpectedConditions.visibilityOf(getWebElement(selector)));
-        } catch (NegativeArraySizeException e) {
-            System.err.println("Element is not clickable during wait: " + selector);
+            addInfo("Selenium Webdriver confirmed visibility of WebElement with " + selector + " Locator");
+        } catch (NoSuchElementException e) {
+            System.err.println("Element not clickable: " + selector);
         } catch (Exception e) {
-            System.out.println("Unexpected error during wait: " + e.getMessage());
+            System.err.println("Unexpected error during Wait: " + e.getMessage());
         }
     }
 
@@ -77,5 +92,17 @@ public class BasePage extends Page{
     @Override
     public String getPageTitle() {
         return driver.getTitle();
+    }
+
+    public void addInfo(String message) {
+        if (ReportTestManager.getTest() != null) {
+            ReportTestManager.getTest().log(Status.INFO, message);
+        }
+    }
+
+    public void addFailInfo(String message) {
+        if (ReportTestManager.getTest() != null) {
+            ReportTestManager.getTest().log(Status.FAIL, message);
+        }
     }
 }

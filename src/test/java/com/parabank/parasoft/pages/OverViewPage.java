@@ -9,6 +9,16 @@ public class OverViewPage extends BasePage{
     }
 
     public boolean isLogoutLinkDisplayed(){
-        return getWebElementSize(By.cssSelector("a[href='logot.htm']")) > 0;
+        return getWebElementSize(By.cssSelector("a[href='logout.htm']")) > 0;
+    }
+
+    public OpenNewAccountPage clickOpenNewAccountLink() {
+        clickElement(By.cssSelector("a[href='openaccount.htm']"));
+        return goTo(OpenNewAccountPage.class);
+    }
+
+    public TransferFundsPage clickTransferFundsLink() {
+        clickElement(By.cssSelector("a[href='transfer.htm']"));
+        return goTo(TransferFundsPage.class);
     }
 }
