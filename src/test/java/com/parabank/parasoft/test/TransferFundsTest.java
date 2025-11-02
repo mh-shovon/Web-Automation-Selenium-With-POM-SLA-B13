@@ -1,6 +1,6 @@
 package com.parabank.parasoft.test;
 
-import Class_And_Practice.com.parabank.parasoft.pages.*;
+import com.parabank.parasoft.pages.*;
 import com.parabank.parasoft.pages.LoginPage;
 import com.parabank.parasoft.pages.OverViewPage;
 import com.parabank.parasoft.pages.TransferCompletePage;
