@@ -1,4 +1,4 @@
-package Class_And_Practice.com.parabank.parasoft.report;
+package com.parabank.parasoft.report;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;

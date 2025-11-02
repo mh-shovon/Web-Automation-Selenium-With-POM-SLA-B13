@@ -1,6 +1,6 @@
-package Class_And_Practice.com.parabank.parasoft.test;
+package com.parabank.parasoft.test;
 
-import Class_And_Practice.com.parabank.parasoft.pages.*;
+import com.parabank.parasoft.pages.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

@@ -1,6 +1,6 @@
-package Class_And_Practice.com.parabank.parasoft.pages;
+package com.parabank.parasoft.pages;
 
-import Class_And_Practice.com.parabank.parasoft.utils.BatchThirteenUtil;
+import com.parabank.parasoft.utils.BatchThirteenUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

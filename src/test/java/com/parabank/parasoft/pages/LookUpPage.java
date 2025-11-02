@@ -1,4 +1,4 @@
-package Class_And_Practice.com.parabank.parasoft.pages;
+package com.parabank.parasoft.pages;
 
 import org.openqa.selenium.WebDriver;
 

@@ -1,4 +1,4 @@
-package Class_And_Practice.com.parabank.parasoft.utils;
+package com.parabank.parasoft.utils;
 
 public class BatchThirteenUtil {
     final public static int WAIT_TIME = 30;
