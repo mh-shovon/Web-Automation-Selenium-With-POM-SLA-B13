@@ -1,7 +1,7 @@
-package com.parabank.parasoft.pages;
+package Class_And_Practice.com.parabank.parasoft.pages;
 
 import com.aventstack.extentreports.Status;
-import com.parabank.parasoft.report.ReportTestManager;
+import Class_And_Practice.com.parabank.parasoft.report.ReportTestManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;

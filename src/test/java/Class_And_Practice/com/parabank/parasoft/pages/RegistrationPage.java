@@ -1,4 +1,4 @@
-package com.parabank.parasoft.pages;
+package Class_And_Practice.com.parabank.parasoft.pages;
 
 import com.thedeanda.lorem.LoremIpsum;
 import org.openqa.selenium.By;

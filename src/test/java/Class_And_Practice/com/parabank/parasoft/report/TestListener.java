@@ -1,8 +1,8 @@
-package com.parabank.parasoft.report;
+package Class_And_Practice.com.parabank.parasoft.report;
 
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
-import com.parabank.parasoft.test.BaseTest;
+import Class_And_Practice.com.parabank.parasoft.test.BaseTest;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;

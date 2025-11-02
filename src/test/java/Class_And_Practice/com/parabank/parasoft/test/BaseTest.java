@@ -1,7 +1,7 @@
-package com.parabank.parasoft.test;
+package Class_And_Practice.com.parabank.parasoft.test;
 
-import com.parabank.parasoft.pages.BasePage;
-import com.parabank.parasoft.pages.Page;
+import Class_And_Practice.com.parabank.parasoft.pages.BasePage;
+import Class_And_Practice.com.parabank.parasoft.pages.Page;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;

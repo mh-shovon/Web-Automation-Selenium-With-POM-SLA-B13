@@ -2,13 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <listeners>
-        <listener class-name="com.parabank.parasoft.report.TestListener"></listener>
+        <listener class-name="Class_And_Practice.com.parabank.parasoft.report.TestListener"></listener>
     </listeners>
     
     <test verbose="2" preserve-order="true"
           name="Parabank Regression Suite">
         <packages>
-            <package name="com.parabank.parasoft.test"></package>
+            <package name="Class_And_Practice.com.parabank.parasoft.test"></package>
         </packages>
     </test>
 </suite>

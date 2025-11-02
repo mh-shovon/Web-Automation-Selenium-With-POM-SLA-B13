@@ -1,8 +1,8 @@
-package com.parabank.parasoft.test;
+package Class_And_Practice.com.parabank.parasoft.test;
 
-import com.parabank.parasoft.pages.LoginPage;
-import com.parabank.parasoft.pages.OverViewPage;
-import com.parabank.parasoft.pages.RegistrationPage;
+import Class_And_Practice.com.parabank.parasoft.pages.LoginPage;
+import Class_And_Practice.com.parabank.parasoft.pages.OverViewPage;
+import Class_And_Practice.com.parabank.parasoft.pages.RegistrationPage;
 import com.thedeanda.lorem.LoremIpsum;
 import org.testng.Assert;
 import org.testng.annotations.Test;
